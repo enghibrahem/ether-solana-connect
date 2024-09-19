@@ -2,6 +2,8 @@ import { useState } from "react"
 import Link from 'next/link'
 import { ConnectButton } from "./styleHook"
 import { Skeleton } from "@mui/material"
+import WalletConnectComponent from "../hook/WalletConnectComponent"
+import SolanaWalletConnectComponent, { SolanaWalletProvider } from "../hook/SolanaWalletProvider"
 
 export default function Header({
   signerAddress,
@@ -21,6 +23,13 @@ export default function Header({
       {headerAlert &&
         <div className="header-alert">
           <p>Currently on Binance. More Chains coming....</p>
+          <WalletConnectComponent/>
+          <SolanaWalletProvider>
+      <div>
+        <h1>My Solana App</h1>
+        {/* Your app content goes here */}
+      </div>
+    </SolanaWalletProvider>
           <button onClick={() => closeAlert()}>
             <svg width="12" height="12" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clipPath="url(#clip0_7_12)">
